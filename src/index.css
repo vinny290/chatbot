@@ -1,16 +1,19 @@
 .react-chatbot-kit-chat-container {
+	background-color: rgb(207, 207, 255);
 	position: relative;
 	width: 100vw !important;
-	height: 800px !important;
+	height: 100vh !important;
 
 	/* overflow: hidden; */
 }
 
 .react-chatbot-kit-chat-message-container {
-	height: 700px;
+	background-color: rgb(255, 168, 216);
+	height: 100%;
 }
 
 .react-chatbot-kit-chat-bot-message {
+	background-color: rgb(95, 255, 202);
 	width: auto !important;
 	height: auto !important;
 }
