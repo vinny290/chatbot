@@ -1,18 +1,48 @@
 import { createChatBotMessage } from 'react-chatbot-kit'
 import BotAvatar from './src/components/BotAvatar/BotAvatar'
-import ButtonOptions from './src/components/ButtonOptions/ButtonOptions'
+import { Slot } from './src/components/Slot'
+import { Stage } from './src/components/Stage'
+import StartBtn from './src/components/StartBtn'
 
+const name = 'чат-бот тех. поддержки'
 const config = {
-	initialMessages: [createChatBotMessage(`Putin top`)],
-	botName: 'support Chat-bot',
+	botName: name,
 	customComponents: {
 		botAvatar: props => <BotAvatar {...props} />,
 	},
+	initialMessages: [
+		createChatBotMessage(
+			`Здравствуйте, я ${name}! Давайте начнём. Из какой Вы компании?`,
+			{
+				widget: 'startBtn',
+			}
+		),
+	],
 	widgets: [
 		{
-			widgetName: 'buttonOptions',
-			widgetFunc: props => <ButtonOptions {...props} />,
+			widgetName: 'startBtn',
+			widgetFunc: props => <StartBtn {...props} />,
 		},
+		{
+			widgetName: 'slots',
+			widgetFunc: props => <Slot {...props} />,
+		},
+		{
+			widgetName: 'namings',
+			widgetFunc: props => <Slot {...props} />,
+		},
+		{
+			widgetName: 'stage',
+			widgetFunc: props => <Stage {...props} />,
+		},
+		{
+			widgetName: 'stage-namings',
+			widgetFunc: props => <Stage {...props} />,
+		},
+		// {
+		// 	widgetName: 'scenary2',
+		// 	widgetFunc: props => <Scenary2 {...props} />,
+		// },
 	],
 }
 
