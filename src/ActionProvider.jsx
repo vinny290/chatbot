@@ -1,15 +1,23 @@
-import React from 'react'
+class ActionProvider {
+	constructor(createChatBotMessage, setStateFunc) {
+		this.createChatBotMessage = createChatBotMessage
+		this.setState = setStateFunc
+	}
 
-const ActionProvider = ({ createChatBotMessage, setState, children }) => {
-	return (
-		<div>
-			{React.Children.map(children, child => {
-				return React.cloneElement(child, {
-					actions: {},
-				})
-			})}
-		</div>
-	)
+	handleOption1() {
+		const message = this.createChatBotMessage('You clicked Option 1', {
+			widget: 'buttonOptions',
+		})
+
+		this.updateChatbotState(message)
+	}
+
+	updateChatbotState(message) {
+		this.setState(prevState => ({
+			...prevState,
+			messages: [...prevState.messages, message],
+		}))
+	}
 }
 
 export default ActionProvider
