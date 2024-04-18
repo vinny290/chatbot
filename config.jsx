@@ -3,6 +3,7 @@ import BotAvatar from './src/components/BotAvatar/BotAvatar'
 import { Slot } from './src/components/Slot'
 import { Stage } from './src/components/Stage'
 import StartBtn from './src/components/StartBtn'
+import Scenary2 from './src/components/scenary2/Scenary2'
 
 const name = 'чат-бот тех. поддержки'
 const config = {
@@ -39,10 +40,10 @@ const config = {
 			widgetName: 'stage-namings',
 			widgetFunc: props => <Stage {...props} />,
 		},
-		// {
-		// 	widgetName: 'scenary2',
-		// 	widgetFunc: props => <Scenary2 {...props} />,
-		// },
+		{
+			widgetName: 'choose',
+			widgetFunc: props => <Scenary2 {...props} />,
+		},
 	],
 }
 

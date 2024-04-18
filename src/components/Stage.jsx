@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
+import Scenary2 from './scenary2/Scenary2'
 
 export const Stage = () => {
 	const [problem, setProblem] = useState('')
+	const [showWidget, setShowWidget] = useState(false)
+
 	const displayProblems = e => {
 		setProblem(e)
+		if (e === 'Запуск Robin Studio') {
+			setShowWidget(true)
+		} else {
+			setShowWidget(false)
+		}
 	}
+
 	return (
 		<div id='problem-div'>
 			<div>
@@ -46,6 +55,8 @@ export const Stage = () => {
 					Через некоторое время после запуска робота
 				</button>
 			</div>
+
+			{showWidget && <Scenary2 />}
 		</div>
 	)
 }

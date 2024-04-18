@@ -49,6 +49,26 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 		})
 		updateState(message)
 	}
+	const handleYes = () => {
+		const message = createChatBotMessage(
+			'Стабильно ли подключение к интернету и внутренней сети?',
+			{
+				widget: 'choose',
+			}
+		)
+		updateState(message)
+	}
+
+	const handleNo = () => {
+		const message = this.createChatBotMessage(
+			'Обратитесь к Вашему системному администратору и повторите процесс запуска Robin Studio после восстановления соединения',
+			{
+				widget: 'choose',
+			}
+		)
+		updateState(message)
+	}
+
 	// Put the handleHello and handleDog function in the actions object to pass to the MessageParser
 	return (
 		<div>
@@ -61,6 +81,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 						namingMessage,
 						stageProblem,
 						displayStages,
+						handleYes,
+						handleNo,
 					},
 				})
 			})}
