@@ -1,27 +1,65 @@
 .react-chatbot-kit-chat-container {
+	margin: 0 auto;
 	background-color: rgb(207, 207, 255);
 	position: relative;
-	width: 100vw !important;
-	height: 100vh !important;
+	width: 700px !important;
+	max-height: 900px !important;
 
 	/* overflow: hidden; */
 }
 
 .react-chatbot-kit-chat-message-container {
-	display: block;
-	background-color: rgb(255, 168, 216);
-	height: 87vh;
+	background-color: rgb(255, 255, 255);
+	height: 100%;
 }
 
 .react-chatbot-kit-chat-bot-message {
-	background-color: rgb(56, 56, 56);
-	font-size: 32px;
+	background-color: #bfc5cf;
+	color: black;
 	width: auto !important;
 	height: auto !important;
 
-	margin-left: 20px;
+	margin-left: 8px;
 }
 
-.react-chatbot-kit-chat-button-container {
-	background-color: rgb(128, 128, 128); /* серый цвет */
+.react-chatbot-kit-chat-bot-message-arrow {
+	border-color: transparent #bfc5cf transparent transparent;
+}
+
+.react-chatbot-kit-chat-header {
+	display: none;
+}
+
+.react-chatbot-kit-chat-input-form {
+	max-width: 689px;
+}
+
+.react-chatbot-kit-chat-btn-send {
+	padding: 10px 10px;
+	font-size: 12px;
+}
+
+.react-chatbot-kit-chat-btn-send {
+	background-color: #e21a1a;
+	transition: background-color 0.2s linear;
+}
+
+.react-chatbot-kit-chat-btn-send:hover {
+	background-color: #9f210e; /* Изменяем цвет фона при наведении */
+}
+
+/* styles.css */
+.btn {
+	background-color: #dfdfdf;
+	color: #000000;
+	border: 2px solid #e21a1a;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 5px;
+	transition: background-color 0.2s linear;
+}
+
+.btn:hover {
+	background-color: #e21a1a;
 }

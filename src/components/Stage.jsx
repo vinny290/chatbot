@@ -1,62 +1,31 @@
-import React, { useState } from 'react'
-import Scenary2 from './scenary2/Scenary2'
+import React from 'react'
 
-export const Stage = () => {
-	const [problem, setProblem] = useState('')
-	const [showWidget, setShowWidget] = useState(false)
+export const Stage = props => {
+	const options = [
+		{
+			text: 'Подключение к ВМ',
+			handler: props.actionProvider.handleConnectList,
+			id: 1,
+		},
+		{
+			text: 'Запуск Robin Studio',
+			handler: props.actionProvider.handleStartRobinStudio,
+			id: 2,
+		},
+		{ text: 'При запуске Robin Player', handler: () => {}, id: 3 },
+		{ text: 'Сразу после запуска робота', handler: () => {}, id: 4 },
+		{
+			text: 'Через некоторое время после запуска робота',
+			handler: () => {},
+			id: 5,
+		},
+	]
 
-	const displayProblems = e => {
-		setProblem(e)
-		if (e === 'Запуск Robin Studio') {
-			setShowWidget(true)
-		} else {
-			setShowWidget(false)
-		}
-	}
+	const optionsMarkup = options.map(option => (
+		<button className='btn' key={option.id} onClick={option.handler}>
+			{option.text}
+		</button>
+	))
 
-	return (
-		<div id='problem-div'>
-			<div>
-				<button
-					id='problem1'
-					className='btn'
-					onClick={() => displayProblems('Подключение к ВМ')}
-				>
-					Подключение к ВМ
-				</button>
-				<button
-					id='problem1'
-					className='btn'
-					onClick={() => displayProblems('Запуск Robin Studio')}
-				>
-					Запуск Robin Studio
-				</button>
-				<button
-					id='problem1'
-					className='btn'
-					onClick={() => displayProblems('При запуске Robin Player')}
-				>
-					При запуске Robin Player
-				</button>
-				<button
-					id='problem1'
-					className='btn'
-					onClick={() => displayProblems('Сразу после запуска робота')}
-				>
-					Сразу после запуска робота
-				</button>
-				<button
-					id='problem1'
-					className='btn'
-					onClick={() =>
-						displayProblems('Через некоторое время после запуска робота')
-					}
-				>
-					Через некоторое время после запуска робота
-				</button>
-			</div>
-
-			{showWidget && <Scenary2 />}
-		</div>
-	)
+	return <div className='learning-options-container'>{optionsMarkup}</div>
 }
